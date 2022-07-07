@@ -36,6 +36,14 @@ async function createWikiDiv(breed_X) {
   let createImage = document.createElement("img");
   createImage.setAttribute("class", "wiki-image");
 
+  let urlWiki = "https://en.wikipedia.org/api/rest_v1/page/summary/" + breed_X;
+
+  fetch(urlWiki)
+    .then((res) => res.json())
+    .then((result) => {
+      createText.innerHTML = result.extract;
+    });
+
   let url = "https://dog.ceo/api/breed/" + breed_X + "/images/random";
 
   fetch(url)
