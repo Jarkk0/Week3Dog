@@ -53,10 +53,11 @@ async function createWikiDiv(breed_X) {
     });
 
   //create elements
-  container.appendChild(createDiv);
-  createDiv.appendChild(createContent);
-  createDiv.appendChild(createHeader);
-  createContent.appendChild(createText);
-  createContent.appendChild(createImageDiv);
+
   createImageDiv.appendChild(createImage);
+  createContent.appendChild(createImageDiv);
+  createContent.appendChild(createText);
+  createDiv.appendChild(createHeader);
+  createDiv.appendChild(createContent);
+  container.appendChild(createDiv);
 }
