@@ -34,7 +34,7 @@ async function createWikiDiv(breed_X) {
   imgContainer.setAttribute("class", "img-container");
 
   let wikiImg = document.createElement("img");
-  wikiImg.setAttribute("class", "wiki-image");
+  wikiImg.setAttribute("class", "wiki-img");
 
   let urlWiki = "https://en.wikipedia.org/api/rest_v1/page/summary/" + breed_X;
 
