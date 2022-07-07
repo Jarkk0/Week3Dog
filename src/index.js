@@ -9,7 +9,6 @@ if (document.readyState !== "loading") {
 }
 
 function initializeCode() {
-  //document.getElementById("app").innerHTML = "<h1>Hello!</h1>";
   let breed_X = ["affenpinscher", "african", "airedale", "whippet", "tervuren"];
   breed_X.forEach(createWikiDiv);
 }

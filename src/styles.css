@@ -24,7 +24,11 @@ body {
     display: flex;
     flex-flow: row-reverse;
   }
-  .wiki-text .img-container {
+  .wiki-text {
+    min-width: 50%;
+    max-width: 50%;
+  }
+  .img-container {
     min-width: 50%;
     max-width: 50%;
   }
