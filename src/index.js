@@ -17,31 +17,31 @@ function initializeCode() {
 async function createWikiDiv(breed_X) {
   const container = document.getElementById("container");
 
-  let createDiv = document.createElement("div");
-  createDiv.setAttribute("class", "wiki-item");
+  let wikiItem = document.createElement("div");
+  wikiItem.setAttribute("class", "wiki-item");
 
-  let createHeader = document.createElement("h1");
-  createHeader.setAttribute("class", "wiki-header");
-  createHeader.innerHTML = breed_X;
+  let wikiHeader = document.createElement("h1");
+  wikiHeader.setAttribute("class", "wiki-header");
+  wikiHeader.innerHTML = breed_X;
 
-  let createContent = document.createElement("div");
-  createContent.setAttribute("class", "wiki-text");
+  let wikiContent = document.createElement("div");
+  wikiContent.setAttribute("class", "wiki-content");
 
-  let createText = document.createElement("p");
-  createText.setAttribute("class", "wiki-text");
+  let wikiText = document.createElement("p");
+  wikiText.setAttribute("class", "wiki-text");
 
-  let createImageDiv = document.createElement("div");
-  createImageDiv.setAttribute("class", "img.container");
+  let imgContainer = document.createElement("div");
+  imgContainer.setAttribute("class", "img-container");
 
-  let createImage = document.createElement("img");
-  createImage.setAttribute("class", "wiki-image");
+  let wikiImg = document.createElement("img");
+  wikiImg.setAttribute("class", "wiki-image");
 
   let urlWiki = "https://en.wikipedia.org/api/rest_v1/page/summary/" + breed_X;
 
   fetch(urlWiki)
     .then((res) => res.json())
     .then((result) => {
-      createText.innerHTML = result.extract;
+      wikiText.innerHTML = result.extract;
     });
 
   let url = "https://dog.ceo/api/breed/" + breed_X + "/images/random";
@@ -49,15 +49,15 @@ async function createWikiDiv(breed_X) {
   fetch(url)
     .then((res) => res.json())
     .then((result) => {
-      createImage.src = result.message;
+      wikiImg.src = result.message;
     });
 
   //create elements
 
-  createImageDiv.appendChild(createImage);
-  createContent.appendChild(createImageDiv);
-  createContent.appendChild(createText);
-  createDiv.appendChild(createHeader);
-  createDiv.appendChild(createContent);
-  container.appendChild(createDiv);
+  imgContainer.appendChild(wikiImg);
+  wikiContent.appendChild(imgContainer);
+  wikiContent.appendChild(wikiText);
+  wikiItem.appendChild(wikiHeader);
+  wikiItem.appendChild(wikiContent);
+  container.appendChild(wikiItem);
 }
